@@ -11,7 +11,7 @@ const Home = () => {
    useEffect(() => {
       const fetchMovieList = async () => {
          try {
-            const result = await movieListService();
+            const result = await movieListService(page);
             setMovieList(result);
          } catch (error) {
             console.log(error);
