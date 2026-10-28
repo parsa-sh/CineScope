@@ -94,10 +94,22 @@
    }
 
    .all-movies {
-      @apply space-y-9;
+      @apply space-y-9 mt-16;
 
       & ul {
          @apply grid grid-cols-1 gap-5 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+      }
+   }
+
+   .page-bar {
+      @apply w-full bg-light-100/5 flex flex-row text-2xl text-white gap-2 justify-between mt-10 p-4 rounded-2xl;
+
+      & button {
+         @apply bg-gray-800 cursor-pointer rounded-xl w-auto px-6;
+      }
+
+      & p {
+         @apply cursor-not-allowed rounded-xl w-auto px-6 bg-dark-100 text-gray-700;
       }
    }
 
@@ -117,7 +129,7 @@
       }
 
       & .rating {
-         @apply flex flex-row items-center gap-1;
+         @apply flex flex-row items-center gap-2;
       }
 
       & .rating img {
