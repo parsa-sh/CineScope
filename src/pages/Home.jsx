@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Search from "../components/Search";
 import { movieListService } from "../services/moviesService";
 import MovieCard from "../components/MovieCard";
+import Pagination from "../components/Pagination";
 
 const Home = () => {
    const [search, setSearch] = useState("");
@@ -40,15 +41,7 @@ const Home = () => {
                   ))}
                </ul>
             </section>
-            <div className="page-bar">
-               {page > 1 ? (
-                  <button onClick={() => setPage(page - 1)}>&lt;</button>
-               ) : (
-                  <p>&lt;</p>
-               )}
-               <span>Page - {page}</span>
-               <button onClick={() => setPage(page + 1)}>&gt;</button>
-            </div>
+            <Pagination page={page} setPage={setPage}/>
          </div>
       </main>
    );
