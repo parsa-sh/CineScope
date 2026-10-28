@@ -6,3 +6,8 @@ export const movieListService = async (page) => {
    );
    return response.data.results;
 };
+
+export const trendingListService = async (trending) => {
+   const response = await api.get(`/trending/movie/${trending}?language=en-US`);
+   return response.data.results;
+};
