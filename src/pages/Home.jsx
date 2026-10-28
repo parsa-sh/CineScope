@@ -3,19 +3,25 @@ import Search from "../components/Search";
 import { movieListService } from "../services/moviesService";
 import MovieCard from "../components/MovieCard";
 import Pagination from "../components/Pagination";
+import Spinner from "../components/Spinner";
 
 const Home = () => {
    const [search, setSearch] = useState("");
    const [movieList, setMovieList] = useState([]);
    const [page, setPage] = useState(1);
+   const [loading, setLoading] = useState(false);
 
    useEffect(() => {
       const fetchMovieList = async () => {
+         setLoading(true);
          try {
             const result = await movieListService(page);
             setMovieList(result);
+            setLoading(false);
          } catch (error) {
             console.log(error);
+         } finally {
+            setLoading(false);
          }
       };
 
@@ -34,14 +40,19 @@ const Home = () => {
                </h1>
             </header>
             <Search Search={search} SetSearch={setSearch} />
-            <section className="all-movies">
-               <ul>
-                  {movieList.map((movie) => (
-                     <MovieCard key={movie.id} movie={movie} />
-                  ))}
-               </ul>
-            </section>
-            <Pagination page={page} setPage={setPage}/>
+            {loading ? (
+               <Spinner />
+            ) : (
+               <section className="all-movies">
+                  <ul>
+                     {movieList.map((movie) => (
+                        <MovieCard key={movie.id} movie={movie} />
+                     ))}
+                  </ul>
+               </section>
+            )}
+
+            {!loading && <Pagination page={page} setPage={setPage} />}
          </div>
       </main>
    );
