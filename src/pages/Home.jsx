@@ -77,11 +77,13 @@ const Home = () => {
                   <span className="text-[#0c91df] text-5xl font-bold">
                      Trending
                   </span>
-                  <ul className="mt-5">
-                     {trendingList.map((movie) => (
-                        <MovieCard key={movie.id} movie={movie} />
-                     ))}
-                  </ul>
+                  <div className="trending-bg">
+                     <ul className="mt-5">
+                        {trendingList.map((movie) => (
+                           <MovieCard key={movie.id} movie={movie} />
+                        ))}
+                     </ul>
+                  </div>
                </section>
             )}
 
