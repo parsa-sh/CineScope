@@ -51,13 +51,37 @@
       @apply px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col relative z-10;
    }
 
-  
+   /* .trending ul::-webkit-scrollbar {
+      @apply w-0 ;
+   } */
+
+   .trending ul::-webkit-scrollbar-track {
+      @apply m-5;
+   }
 
    .trending {
-      @apply mt-20 ;
+      @apply mt-20;
+
+      & .trending-bg {
+         @apply rounded-2xl bg-linear-to-r from-[#0c91df] to-[#e405f8] pb-3
+      }
 
       & ul {
-         @apply flex flex-row overflow-x-auto overflow-y-hidden gap-5 -mt-10 w-full  p-5 bg-linear-to-r from-[#0c91df] to-[#e405f8] rounded-2xl scrollbar-none;
+         @apply flex flex-row overflow-x-auto overflow-y-hidden gap-5   p-5 ;
+
+         &::-webkit-scrollbar {
+            background-color: transparent;
+            height: 12px;
+         }
+
+         &::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 4px;
+         }
+
+         &::-webkit-scrollbar-track {
+            background: transparent;
+         }
       }
 
       & ul li {
@@ -121,7 +145,7 @@
       }
 
       & .content {
-         @apply mt-2 flex flex-row items-center flex-wrap gap-2;
+         @apply mt-2 flex flex-row items-center flex-wrap gap-2 z-1;
       }
 
       & .rating {
@@ -182,7 +206,7 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-track {
    background: var(--sb-track-color);
    border-radius: 4px;
-   margin:6px 0;
+   margin: 6px 0;
 }
 
 body::-webkit-scrollbar-thumb {
