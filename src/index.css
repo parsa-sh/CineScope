@@ -5,18 +5,12 @@
 
 @theme {
    --color-primary: #030014;
-
    --color-light-100: #cecefb;
    --color-light-200: #a8b5db;
-
    --color-gray-100: #9ca4ab;
-
    --color-dark-100: #0f0d23;
-
    --font-dm-sans: DM Sans, sans-serif;
-
    --breakpoint-xs: 480px;
-
    --background-image-hero-pattern: url("/hero-bg.png");
 }
 
@@ -28,7 +22,7 @@
    }
 
    h1 {
-      @apply mx-auto max-w-4xl text-center text-5xl font-bold leading-tight tracking-[-1%] text-white sm:text-[64px] sm:leading-[76px];
+      @apply mx-auto max-w-4xl text-center text-5xl font-bold leading-tight tracking-[-1%] text-white sm:text-[64px] sm:leading-19;
    }
 
    h2 {
@@ -57,23 +51,25 @@
       @apply px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col relative z-10;
    }
 
+  
+
    .trending {
-      @apply mt-20;
+      @apply mt-20 ;
 
       & ul {
-         @apply flex flex-row overflow-y-auto gap-5 -mt-10 w-full hide-scrollbar;
+         @apply flex flex-row overflow-x-auto overflow-y-hidden gap-5 -mt-10 w-full  p-5 bg-linear-to-r from-[#0c91df] to-[#e405f8] rounded-2xl scrollbar-none;
       }
 
       & ul li {
-         @apply min-w-[230px] flex flex-row items-center;
+         @apply min-w-57.5 flex flex-row items-center;
       }
 
       & ul li p {
-         @apply fancy-text mt-[22px] text-nowrap;
+         @apply fancy-text mt-5.5 text-nowrap;
       }
 
       & ul li img {
-         @apply w-[127px] h-[163px] rounded-lg object-cover -ml-3.5;
+         @apply w-31.75 h-40.75 rounded-lg object-cover -ml-3.5;
       }
    }
 
@@ -170,5 +166,32 @@
 
    &::-webkit-scrollbar {
       display: none;
+   }
+}
+
+body {
+   --sb-track-color: #232e33;
+   --sb-thumb-color: #e405f8;
+   --sb-size: 10px;
+}
+
+body::-webkit-scrollbar {
+   width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+   background: var(--sb-track-color);
+   border-radius: 4px;
+   margin:6px 0;
+}
+
+body::-webkit-scrollbar-thumb {
+   background: var(--sb-thumb-color);
+   border-radius: 4px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+   body {
+      scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
    }
 }
