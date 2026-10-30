@@ -51,10 +51,6 @@
       @apply px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col relative z-10;
    }
 
-   /* .trending ul::-webkit-scrollbar {
-      @apply w-0 ;
-   } */
-
    .trending ul::-webkit-scrollbar-track {
       @apply m-5;
    }
@@ -63,11 +59,11 @@
       @apply mt-20;
 
       & .trending-bg {
-         @apply rounded-2xl bg-linear-to-r from-[#0c91df] to-[#e405f8] pb-3
+         @apply rounded-2xl bg-linear-to-r from-[#0c91df] to-[#e405f8] pb-3;
       }
 
       & ul {
-         @apply flex flex-row overflow-x-auto overflow-y-hidden gap-5   p-5 ;
+         @apply flex flex-row overflow-x-auto overflow-y-hidden gap-5  p-5;
 
          &::-webkit-scrollbar {
             background-color: transparent;
@@ -170,6 +166,26 @@
 
       & .content .year {
          @apply text-gray-100 font-medium text-base;
+      }
+   }
+
+   .trending-card {
+      @apply p-5 flex flex-col items-center gap-2 w-48 shrink-0;
+
+      & img {
+         @apply rounded-lg w-full object-cover aspect-[2/3];
+      }
+
+      & h3 {
+         @apply text-black font-bold line-clamp-1 text-base text-shadow-gray-800 text-shadow-[1px_1px_2px];
+      }
+
+      & .content {
+         @apply flex flex-row items-center flex-wrap z-1;
+      }
+
+      & .content .year {
+         @apply text-black font-medium text-base;
       }
    }
 }
