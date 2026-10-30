@@ -16,13 +16,13 @@ const MovieCard = ({
             <div className="rating">
                <img src="/star.svg" alt="rating img" />
                <p>{vote_average ? vote_average.toFixed(1) : "N/A"}</p>
-               <span className="text-3xl">·</span>
-               <h3 className="year">
-                  {release_date ? release_date.split("-")[0] : "N/A"}
-               </h3>
-               <span className="text-3xl">·</span>
-               <h3 className="lang">{original_language}</h3>
             </div>
+            <span className="text-3xl">·</span>
+            <h3 className="year">
+               {release_date ? release_date.split("-")[0] : "N/A"}
+            </h3>
+            <span className="text-3xl">·</span>
+            <h3 className="lang">{original_language}</h3>
          </div>
       </div>
    );
