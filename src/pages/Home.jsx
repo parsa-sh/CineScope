@@ -7,6 +7,7 @@ import {
 import MovieCard from "../components/MovieCard";
 import Pagination from "../components/Pagination";
 import Spinner from "../components/Spinner";
+import TrendingCard from "../components/TrendingCard";
 
 const Home = () => {
    const [search, setSearch] = useState("");
@@ -80,7 +81,7 @@ const Home = () => {
                   <div className="trending-bg">
                      <ul className="mt-5">
                         {trendingList.map((movie) => (
-                           <MovieCard key={movie.id} movie={movie} />
+                           <TrendingCard key={movie.id} movie={movie} />
                         ))}
                      </ul>
                   </div>
