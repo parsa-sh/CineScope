@@ -9,6 +9,7 @@ import MovieCard from "../components/MovieCard";
 import Pagination from "../components/Pagination";
 import Spinner from "../components/Spinner";
 import TrendingCard from "../components/TrendingCard";
+import { useDebounce } from "react-use";
 
 const Home = () => {
    const [search, setSearch] = useState("");
@@ -17,21 +18,26 @@ const Home = () => {
    const [page, setPage] = useState(1);
    const [loading, setLoading] = useState(false);
    const [trending, setTrending] = useState("week");
+   const [debouncedSearch, setDebouncedSearch] = useState("");
+
+   useDebounce(
+      () => {
+         setDebouncedSearch(search);
+      },
+      400,
+      [search]
+   );
 
    //fetch discovery movie list
    useEffect(() => {
       const fetchMovieList = async () => {
          setLoading(true);
          try {
-            if (search.trim()) {
-               const result = await searchListService(search, page);
-               setMovieList(result);
-               setLoading(false);
-            } else {
-               const result = await movieListService(page);
-               setMovieList(result);
-               setLoading(false);
-            }
+            const result = debouncedSearch.trim()
+               ? await searchListService(debouncedSearch.trim(), page)
+               : await movieListService(page);
+            setMovieList(result);
+            setLoading(false);
          } catch (error) {
             console.log(error);
          } finally {
@@ -40,7 +46,7 @@ const Home = () => {
       };
 
       fetchMovieList();
-   }, [page, search]);
+   }, [page, debouncedSearch]);
 
    //fetch trending movies
    useEffect(() => {
