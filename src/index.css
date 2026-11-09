@@ -59,7 +59,7 @@
       @apply mt-20;
 
       & .trending-bg {
-         @apply rounded-2xl bg-linear-to-r from-[#0c91df] to-[#e405f8] pb-3;
+         @apply rounded-2xl bg-dark-100 pb-3;
       }
 
       & ul {
@@ -177,15 +177,11 @@
       }
 
       & h3 {
-         @apply text-black font-bold line-clamp-1 text-base text-shadow-gray-800 text-shadow-[1px_1px_2px];
+         @apply font-bold line-clamp-1 text-base text-white ;
       }
 
       & .content {
          @apply flex flex-row items-center flex-wrap z-1;
-      }
-
-      & .content .year {
-         @apply text-black font-medium text-base;
       }
    }
 }

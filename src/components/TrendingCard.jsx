@@ -1,5 +1,5 @@
 const TrendingCard = ({
-   movie: { title, poster_path, release_date },
+   movie: { title, poster_path },
 }) => {
    return (
       <div className="trending-card">
@@ -13,9 +13,6 @@ const TrendingCard = ({
          />
          <h3 className="mt-4">{title}</h3>
          <div className="content">
-            <h3 className="year">
-               {release_date ? release_date.split("-")[0] : "N/A"}
-            </h3>
          </div>
       </div>
    );
