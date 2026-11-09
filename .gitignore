@@ -1,4 +1,4 @@
-# Logs
+# Main ignore directories and files
 logs
 *.log
 npm-debug.log*
