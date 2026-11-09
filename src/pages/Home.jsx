@@ -3,6 +3,7 @@ import Search from "../components/Search";
 import {
    movieListService,
    trendingListService,
+   searchListService,
 } from "../services/moviesService";
 import MovieCard from "../components/MovieCard";
 import Pagination from "../components/Pagination";
@@ -22,9 +23,15 @@ const Home = () => {
       const fetchMovieList = async () => {
          setLoading(true);
          try {
-            const result = await movieListService(page);
-            setMovieList(result);
-            setLoading(false);
+            if (search.trim()) {
+               const result = await searchListService(search, page);
+               setMovieList(result);
+               setLoading(false);
+            } else {
+               const result = await movieListService(page);
+               setMovieList(result);
+               setLoading(false);
+            }
          } catch (error) {
             console.log(error);
          } finally {
@@ -33,7 +40,7 @@ const Home = () => {
       };
 
       fetchMovieList();
-   }, [page]);
+   }, [page, search]);
 
    //fetch trending movies
    useEffect(() => {
