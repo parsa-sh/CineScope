@@ -88,9 +88,16 @@ const Home = () => {
                <Spinner />
             ) : (
                <section className="trending">
-                  <span className="text-[#0c91df] text-5xl font-bold">
-                     Trending
-                  </span>
+                  <div className="trending-header">
+                     <span className="text-[#0c91df] text-5xl font-bold">
+                        Trending
+                     </span>
+                     <div className="trending-header-switcher">
+                        <button className={trending=="week" && "active-btn"} onClick={()=>setTrending("week")}>Week</button>
+                        <button className={trending=="day" && "active-btn"} onClick={()=>setTrending("day")}>Day</button>
+                     </div>
+                  </div>
+
                   <div className="trending-bg">
                      <ul className="mt-5">
                         {trendingList.map((movie) => (
