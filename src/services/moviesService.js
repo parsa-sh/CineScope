@@ -11,3 +11,10 @@ export const trendingListService = async (trending) => {
    const response = await api.get(`/trending/movie/${trending}?language=en-US`);
    return response.data.results;
 };
+
+export const searchListService = async (query, page) => {
+   const response = await api.get("/search/movie", {
+      params: { query, page },
+   });
+   return response.data.results;
+};
