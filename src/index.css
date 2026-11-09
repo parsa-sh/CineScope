@@ -186,6 +186,25 @@
    }
 }
 
+.trending-header {
+   @apply flex flex-row gap-5;
+
+   & .trending-header-switcher{
+      @apply  flex flex-row gap-5 rounded-4xl bg-dark-100 justify-center items-start p-5;
+      
+      & button{
+         @apply text-white font-bold cursor-pointer p-2;
+
+         &:hover{
+            @apply bg-[#e405f8] rounded-4xl;
+         }
+      }
+      & .active-btn {
+         @apply text-white bg-[#1f2937] rounded-4xl
+      }
+   }
+}
+
 @utility text-gradient {
    @apply bg-linear-to-r from-[#0c91df] to-[#e405f8] bg-clip-text text-transparent;
 }
