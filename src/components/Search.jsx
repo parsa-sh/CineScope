@@ -1,4 +1,4 @@
-const Search = ({ Search, SetSearch }) => {
+const Search = ({ Search, SetSearch}) => {
    return (
       <div className="search">
          <div>
